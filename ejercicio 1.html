@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <CEnter><h1>EJERCICIO No.1</h1></CEnter> 
+
+   <script>
+
+class Persona{
+    #documento;
+    #nombreCompleto;
+    
+
+constructor(){
+    this.#documento =``;
+    this.#nombreCompleto =``;
+    
+}
+
+        // METODOS GETTE Y SETTER
+        set setDocumento(value){
+            this.#documento = value;
+        }
+        get getDocumento(){
+            return this.#documento;
+        }
+        // 2
+        set setNombreCompleto(value){
+            this.#nombreCompleto = value;
+        }
+        get getNombreCompleto(){
+            return this.#nombreCompleto;
+        }
+        
+        // metodos 
+            informacion(){
+                console.log(`soy ${this.getNombreCompleto} y me identfico con la C.C No. ${this.getDocumento}`)
+            }
+}
+Reflect.preventExtensions(Persona);
+const persona1= new Persona()
+Reflect.preventExtensions(persona1)
+console.log({persona1});
+
+persona1.setDocumento  =`1.001.200.445`;
+persona1.setNombreCompleto =`David Morales`;
+
+persona1.informacion();
+
+
+class Aprendiz extends Persona{
+    #ficha;
+    #programa;
+
+    constructor(){
+        super();
+        this.#ficha= ``
+        this.#programa= ``;
+    }
+    set setFicha(value){
+            this.#ficha = value;
+        }
+        get getFicha(){
+            return this.#ficha;
+        }
+        // 2
+        set setPrograma(value){
+            this.#programa = value;
+        }
+        get getPrograma(){
+            return this.#programa;
+        }
+
+
+matricula(){
+    console.log(`el aprendiz ${this.getNombreCompleto} esta matriculado en la ficha ${this.getFicha}
+                correspondiente al programa ${this.getPrograma}`)
+}
+}
+const persona2 = new Aprendiz;
+
+persona2.setDocumento  =`1.001.200.466`;
+persona2.setFicha =`2798618`;
+persona2.setNombreCompleto  =`Andres Urrea`;
+persona2.setPrograma =`ADSO`;
+
+
+console.log({persona2})
+
+persona2.matricula();
+
+class EtapaElectiva extends Aprendiz{
+    #numeroTrimestre   
+    #fechaInicio
+    #fechaTerminacion
+
+    constructor(){
+        super();
+        this.#numeroTrimestre=``
+        this.#fechaInicio=``
+        this.#fechaTerminacion= ``
+    }
+    set setNumeroTrimestre(value){
+            this.#numeroTrimestre = value;
+        }
+        get getNumeroTrimestre(){
+            return this.#numeroTrimestre;
+        }
+        // 2
+        set setFechaInicio(value){
+            this.#fechaInicio = value;
+        }
+        get getFechaInicio(){
+            return this.#fechaInicio;
+        }
+        // 3
+        set setFechaTerminacion(value){
+            this.#fechaTerminacion = value;
+        }
+        get getFechaTerminacion(){
+           return this.#fechaTerminacion;
+        }
+
+informacion(){
+    console.log(`el aprendiz ${this.getNombreCompleto} esta curzando ${this.getNumeroTrimestre}
+    del programa ${this.getPrograma}`)
+}
+
+estado(){
+    console.log(`El aprendiz ${this.getNombreCompleto} esta MATRICULADO ${this.getPrograma}
+               el cual inicio el ${this.getFechaInicio} y termina el ${this.getFechaTerminacion}`)
+}
+
+}
+
+const persona3 = new EtapaElectiva 
+persona3.setNombreCompleto = ` Jorge Parrado`;
+persona3.setPrograma = `figuritas de fomi 1`;
+persona3.setNumeroTrimestre = `2do trimestre`;
+persona2.setFechaInicio= `10-08-2023`;
+persona2.setFechaTerminacion= `04-04-2025`;
+
+console.log({persona3}) 
+persona3.informacion();
+persona3.estado();
+
+class EtapaProductiva extends EtapaElectiva{
+   #modalidad 
+   #fechaInicio1
+   #fechaTerminacion2
+
+   constructor(){
+    super();
+   this.#modalidad= ``;
+   this.#fechaInicio1= ``;
+   this.#fechaTerminacion2= ``;
+   }
+    set setModalidad(value){
+            this.#modalidad= value;
+        }
+        get getModalidad(){
+            return this.#modalidad;
+        }
+        // 2
+        set setFechaInicio1(value){
+            this.#fechaInicio1 = value;
+        }
+        get getFechaInicio1(){
+            return this.#fechaInicio1;
+        }
+        // 3
+        set setFechaTerminacion2(value){
+            this.#fechaTerminacion2 = value;
+        }
+        get getFechaTerminacion2(){
+           return this.#fechaTerminacion2;
+        }
+
+informacionPractica(){
+    console.log(`el aprendiz ${this.getNombreCompleto} esta en modalidad ${this.getModalidad}
+                del programa ${this.getPrograma}`)
+}
+
+estadoPractica(){
+    console.log(`El aprendiz ${this.getNombreCompleto} esta en PRACTICAS en modalidad ${this.getModalidad}
+               el cual inicio el ${this.getFechaInicio1} y termina el ${this.getFechaTerminacion2}`)
+}    
+}
+
+const aprendizPracticante = new EtapaProductiva
+aprendizPracticante.setNombreCompleto = `Andres Emilio Escobar`;
+aprendizPracticante.setModalidad = `Presencialidad`;
+aprendizPracticante.setFechaInicio1 = `30-01-2023`;
+aprendizPracticante.setFechaTerminacion2 = `30-07-2023`;
+aprendizPracticante.setPrograma = `Analisis y Desarrollo de Software`;
+
+console.log({aprendizPracticante})
+aprendizPracticante.informacionPractica();
+aprendizPracticante.estadoPractica()
+
+// INSTRUCTOR 
+console.log('PARTE INSTRUCTOR')
+class Instructor extends Persona{
+    #profesion
+    #salarioBasico
+
+    constructor(){
+        super();
+        this.#profesion =``;
+        this.#salarioBasico =0;
+    }
+    set setProfesion(value){
+        this.#profesion= value;
+    }
+    get getProfesion(){
+        return this.#profesion;
+    }
+    // 2
+    set setSalarioBasico(value){
+        this.#salarioBasico= value;
+    }
+    get getSalarioBasico(){
+        return this.#salarioBasico;
+    }
+
+contrato(){
+    console.log(`El instructor ${this.getNombreCompleto} tiene la profesion ${this.getProfesion},`+
+                ` el instructor dentro de la institucion pertenece al area de ADSO y su salario basico es $ ${this.getSalarioBasico}`)
+}
+}
+
+const instructor1 = new Instructor 
+instructor1.setNombreCompleto =`Andres Camilo Perez `;
+instructor1.setProfesion =`ingeniero de Software`;
+instructor1.setSalarioBasico = 1000000;
+
+console.log({instructor1})
+instructor1.contrato();
+
+class InstructorPlanta extends Instructor{
+    #grado
+    #fechaVinculacion
+    constructor(){
+        super();
+        this.#grado=``;
+        this.#fechaVinculacion=``;
+    }
+    set setGrado(value){
+        this.#grado= value;
+    }
+    get getGrado(){
+        return this.#grado;
+    }
+    // 2
+    set setFechaVinculacion(value){
+        this.#fechaVinculacion= value;
+    }
+    get getFechaVinculacion(){
+        return this.#fechaVinculacion;
+    }
+infoPlata(){
+    console.log(`El instructor ${this.getNombreCompleto}, esta activo como instructor de JavaScript`)
+}
+
+estadoPlanta(){
+    console.log(`El instructor ${this.getNombreCompleto}, enseña JavaScript y esta vinculado con la institucion desde ${this.getFechaVinculacion}`)
+}
+
+salarioProfesor(){
+    const salarioxGrado = 100000.00;
+    // const numeroGrados = (Math.floor(Math.random() * 21));
+    const numeroGrados= this.getGrado;
+    const suma = numeroGrados * salarioxGrado;
+    let ultSum = this.getSalarioBasico + suma;
+    console.log(`el instructo tiene a su cargo ${numeroGrados} cursos y su salario es de $${ultSum}`)
+}
+}
+
+const instPlanta1 = new InstructorPlanta
+instPlanta1.setGrado = (Math.floor(Math.random() * 21));
+instPlanta1.setNombreCompleto=`Julian David Reyes`;
+instPlanta1.setFechaVinculacion= `23-02-2023`
+instPlanta1.setSalarioBasico = 2000000.00;
+
+console.log({instPlanta1})
+
+instPlanta1.infoPlata();
+instPlanta1.estadoPlanta();
+instPlanta1.salarioProfesor(); 
+
+class InstructorContrato extends Instructor{
+    #duracionContrato 
+    #fechaVin
+    constructor(){
+        super();
+        this.#duracionContrato= ``;
+        this.#fechaVin= ``;
+    }
+    set setDuracionContrato(value){
+        this.#duracionContrato= value;
+    }
+    get getDuracionContrato(){
+        return this.#duracionContrato;
+    }
+    // 2
+    set setFechaVin(value){
+        this.#fechaVin= value;
+    }
+    get getFechaVinculacion(){
+        return this.#fechaVin;
+    }
+
+infoContrato(){
+    console.log(`El instructor ${this.getNombreCompleto}, esta activo como instructor de JavaScript`)
+}
+
+estadoContrato(){
+
+    let fecha1 = new Date(this.fechaVin);
+        let fecha2 = new Date(2023-11-1)
+
+        let miliSegundos= 24 * 60 * 60 * 1000;
+
+        let miliSegundosTranscurridos= Math.abs(fecha1.getTime()- fecha2.getTime());
+        let diasTranscurridos = Math.round(miliSegundosTranscurridos/miliSegundos);
+    const meses=  Math.round(diasTranscurridos/30) ;
+
+    console.log(`El instructor ${this.getNombreCompleto}, enseña JavaScript y esta vinculado por 9 meses con la institucion, `+
+                `los cuales iniciaron el ${this.getFechaVin} y teminan el 2023-11-1`)
+}
+salarioContrato(){
+    console.log(`el instructo tiene a su cargo 10 cursos y su salario es de $${this.getSalarioBasico}`)
+}
+}
+
+const profesorContrato1 = new InstructorContrato
+
+profesorContrato1.setNombreCompleto= `David Morales`;
+profesorContrato1.setFechaVin= `1-11-2023`;
+profesorContrato1.setSalarioBasico= 3000000;
+
+console.log({profesorContrato1})
+
+profesorContrato1.infoContrato();
+profesorContrato1.estadoContrato();
+profesorContrato1.salarioContrato();
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

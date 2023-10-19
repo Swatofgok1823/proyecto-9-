@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <CEnter><h1>EJERCICIO No.2</h1></CEnter> 
+
+   <script>
+
+class Producto{
+    #codigo;
+    #titulo;
+    #autor;
+    
+
+constructor(){
+    this.#codigo =``;
+    this.#titulo =``;
+    this.#autor =``; 
+}
+
+        // METODOS GETTE Y SETTER
+        set setCodigo(value){
+            this.#codigo = value;
+        }
+        get getCodigo(){
+            return this.#codigo;
+        }
+        // 2
+        set setTitulo(value){
+            this.#titulo = value;
+        }
+        get getTitulo(){
+            return this.#titulo;
+        }
+        // 3
+        set setAutor(value){
+            this.#autor = value;
+        }
+        get getAutor(){
+            return this.#autor;
+        }
+
+        
+        // metodos 
+            informacion(){
+                console.log(`Producto con codigo ${this.getCodigo} titulo ${this.getTitulo}
+                y su autor  ${this.getAutor}`)
+            }
+}
+Reflect.preventExtensions(Producto);
+const producto1= new Producto()
+Reflect.preventExtensions(producto1)
+console.log({producto1});
+
+producto1.setCodigo  =`1234`;
+producto1.setTitulo =`Satanas`;
+producto1.setAutor =`Mario Mendoza`;
+
+producto1.informacion();
+
+
+class ProductoSoftware extends Producto{
+    #version;
+    #sistema;
+
+    constructor(){
+        super();
+        this.#version= ``;
+        this.#sistema= ``;
+    }
+    set setVersion(value){
+            this.#version = value;
+        }
+        get getVersion(){
+            return this.#version;
+        }
+        // 2
+        set setSistema(value){
+            this.#sistema = value;
+        }
+        get getSistema(){
+            return this.#sistema;
+        }
+
+
+informacionSoftware(){
+    console.log(`el software esta en su version ${this.getVersion} y desarrollada en el sistema operativo  ${this.getSistema }`)
+}
+}
+const desarrollador = new ProductoSoftware;
+
+desarrollador.setVersion =`V 1.00.00`;
+desarrollador.setSistema =`linux`;
+
+
+console.log({desarrollador})
+
+desarrollador.informacionSoftware();
+
+class ProductoGrabado extends Producto{
+    #tiempoDuracion
+    #medioTecnologico
+
+
+    constructor(){
+        super();
+        this.#tiempoDuracion=``
+        this.#medioTecnologico=``
+    }
+    set setTiempoDuracon(value){
+            this.#tiempoDuracion = value;
+        }
+        get getTiempoDuracion(){
+            return this.#tiempoDuracion;
+        }
+        // 2
+        set setMedioTecnologico(value){
+            this.#medioTecnologico= value;
+        }
+        get getMedioTecnologico(){
+            return this.#medioTecnologico;
+        }
+       
+
+informacionProducto(){
+    console.log(`el tiempo de desarrollo del producto ${this.getTiempoDuracion} y se uso el medio tecnologico de ${this.getMedioTecnologico}
+    para su desarrollo`)
+}
+
+}
+
+const productoA = new ProductoGrabado
+productoA.setTiempoDuracion = ` 8 meses`;
+productoA.setMedioTecnologico = `Computadora`;
+
+console.log({productoA}) 
+productoA.informacionProducto();
+
+
+class ProductoImpreso extends Producto{
+   #editorial
+   #año
+   #precio
+
+   constructor(){
+    super();
+   this.#editorial= ``;
+   this.#año= ``;
+   this.#precio= 0;
+   }
+    set setEditorial(value){
+            this.#editorial= value;
+        }
+        get getEditorial(){
+            return this.#editorial;
+        }
+        // 2
+        set setAño(value){
+            this.#año = value;
+        }
+        get getAño(){
+            return this.#año;
+        }
+        // 3
+        set setPrecio(value){
+            this.#precio = value;
+        }
+        get getPrecio(){
+           return this.#precio;
+        }
+
+info(){
+    console.log(`el libro ${this.getTitulo} del autor ${this.getAutor} `+
+     `es de la editorial ${this.getEditorial}, publicado en el año ${this.getAño} y cuenta con unprecio de $ ${this.getPrecio}`)
+}
+}
+
+const productoFisico = new ProductoImpreso
+productoFisico.setTitulo= `Satanas`;
+productoFisico.setAutor= `Mario Mendoza`;
+productoFisico.setEditorial= `planeta`;
+productoFisico.setAño= `30-07-1993`;
+productoFisico.setPrecio= 20000 ;
+
+console.log({productoFisico})
+productoFisico.info();
+
+class Revista extends ProductoImpreso{
+    #volumen
+   
+
+   constructor(){
+    super();
+   this.#volumen= ``;
+
+   }
+    set setVolumen(value){
+            this.#volumen= value;
+        }
+        get getVolumen(){
+            return this.#volumen;
+        }
+        
+infRevista(){
+    console.log(`la revista ${this.getTitulo} es publicada por ${this.getEditorial} y tiene un valor mensual de $ ${this.getPrecio}`)
+}
+
+estadoRevista(){
+    console.log(`la revista ${this.getTitulo} se encuentra en el volumen ${this.getVolumen}`)
+}
+}
+
+const revista1 = new Revista
+
+revista1.setTitulo= `Shock`;
+revista1.setEditorial = `Editorial Cromos`;
+revista1.setPrecio = 10000;
+revista1.setVolumen= `15`;
+
+console.log({revista1})
+revista1.infRevista();
+revista1.estadoRevista();
+
+class Libros extends ProductoImpreso{
+    #idioma
+
+   constructor(){
+    super();
+   this.#idioma= ``;
+
+   }
+    set setIdioma(value){
+            this.#idioma = value;
+        }
+        get getIdioma(){
+            return this.#idioma;
+        }
+        
+infLibro(){
+    console.log(`El libro ${this.getTitulo} es publicada por ${this.getEditorial} y tiene un valor de $ ${this.getPrecio}`)
+}
+
+estadoLibro(){
+    console.log(`El libro ${this.getTitulo} se publico en ${this.getIdioma}`)
+}
+}
+
+const libro1 = new Libros
+
+libro1.setTitulo= `satanas`;
+libro1.setEditorial = `Editorial Planeta`;
+libro1.setPrecio = 20000;
+libro1.setIdioma= `Español`;
+
+console.log({libro1})
+libro1.infLibro();
+libro1.estadoLibro();
+
+   </script>
+</body>
+</html>
